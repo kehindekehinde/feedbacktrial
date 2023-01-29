@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 
-const RatingSelect = ({select}) => {
+const RatingSelect = ({ select }) => {
   const [selected, setSelected] = useState(10);
 
+  const { feedbackEdit } = useContext(FeedbackContext);
+
+  useEffect(() => {
+    setSelected(feedbackEdit.item.rating);
+  }, [feedbackEdit]);
+
   const handleChange = (e) => {
-    setSelected(+e.currentTarget.value)
-    select(+e.currentTarget.value)
+    setSelected(+e.currentTarget.value);
+    select(+e.currentTarget.value);
   };
   return (
     <ul className="rating">
@@ -15,7 +22,7 @@ const RatingSelect = ({select}) => {
           id="num1"
           name="rating"
           value="1"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 1}
         />
         <label htmlFor="num1">1</label>
@@ -27,7 +34,7 @@ const RatingSelect = ({select}) => {
           id="num2"
           name="rating"
           value="2"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 2}
         />
         <label htmlFor="num2">2</label>
@@ -39,7 +46,7 @@ const RatingSelect = ({select}) => {
           id="num3"
           name="rating"
           value="3"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 3}
         />
         <label htmlFor="num3">3</label>
@@ -51,7 +58,7 @@ const RatingSelect = ({select}) => {
           id="num4"
           name="rating"
           value="4"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 4}
         />
         <label htmlFor="num4">4</label>
@@ -63,7 +70,7 @@ const RatingSelect = ({select}) => {
           id="num5"
           name="rating"
           value="5"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 5}
         />
         <label htmlFor="num5">5</label>
@@ -75,7 +82,7 @@ const RatingSelect = ({select}) => {
           id="num6"
           name="rating"
           value="6"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 6}
         />
         <label htmlFor="num6">6</label>
@@ -87,7 +94,7 @@ const RatingSelect = ({select}) => {
           id="num7"
           name="rating"
           value="7"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 7}
         />
         <label htmlFor="num7">7</label>
@@ -99,7 +106,7 @@ const RatingSelect = ({select}) => {
           id="num8"
           name="rating"
           value="8"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 8}
         />
         <label htmlFor="num7">8</label>
@@ -111,7 +118,7 @@ const RatingSelect = ({select}) => {
           id="num9"
           name="rating"
           value="9"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 9}
         />
         <label htmlFor="num9">9</label>
@@ -123,7 +130,7 @@ const RatingSelect = ({select}) => {
           id="num10"
           name="rating"
           value="10"
-          onchange={handleChange}
+          onChange={handleChange}
           checked={selected === 10}
         />
         <label htmlFor="num10">10</label>

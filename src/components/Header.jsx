@@ -14,6 +14,7 @@ const Header = ({ text, bgColor, textColor }) => {
     </header>
   );
 };
+
 Header.defaultProps = {
   text: "FEEDBACK UI",
   bgColor: "rgba(0,0,0,0.4)",
